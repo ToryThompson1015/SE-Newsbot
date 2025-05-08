@@ -1,7 +1,7 @@
 import os
 import requests
 
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")  # ✅ Use GitHub Actions secret
 
 def post_test_message():
     message = "✅ *Test Successful:* Your Software Engineering News Bot is connected and ready to go!"
