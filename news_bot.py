@@ -1,4 +1,6 @@
 # replit: packages = ["feedparser", "requests"]
+import os
+
 import feedparser
 import requests
 
