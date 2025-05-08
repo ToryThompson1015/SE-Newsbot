@@ -1,16 +1,21 @@
 import os
 import requests
 
-SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")  # ✅ Use GitHub Actions secret
+SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")
 
 def post_test_message():
-    message = "✅ *Test Successful:* Your Software Engineering News Bot is connected and ready to go!"
-    response = requests.post(SLACK_WEBHOOK_URL, json={"text": message})
-    print(f"Status: {response.status_code}")
-    print(f"Response: {response.text}")
+    message = {
+        "text": "✅ *Direct test:* Slack webhook is working via GitHub Actions."
+    }
+
+    if not SLACK_WEBHOOK_URL:
+        print("❌ SLACK_WEBHOOK_URL is missing.")
+        return
+
+    print("✅ Webhook variable loaded.")
+    response = requests.post(SLACK_WEBHOOK_URL, json=message)
+    print(f"Status Code: {response.status_code}")
+    print(f"Response Text: {response.text}")
 
 if __name__ == "__main__":
-    if not SLACK_WEBHOOK_URL:
-        print("❌ Missing Slack webhook.")
-    else:
-        post_test_message()
+    post_test_message()
