@@ -4,7 +4,7 @@ import os
 import feedparser
 import requests
 
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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" # Replace this with your actual URL
+SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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" # Replace this with your actual URL
 
 FEEDS = {
     "The Verge": "https://www.theverge.com/rss/index.xml",
